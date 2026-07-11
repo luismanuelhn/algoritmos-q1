@@ -12,3 +12,17 @@ Pseudocódigo en español neutro, sin lenguaje de programación especifico.
 
 ## Autor
 Luis Manuel Rodriguez Martinez - Q1 2026
+
+# Evaluación Semana 2 - Algoritmos
+## pseudocódigo Muestra el control de stock de una tienda Online
+
+ALGORITMO ControlStockProductos
+
+VARIABLES
+    N              : ENTERO
+    i              : ENTERO
+    stock          : ARREGLO[N] DE ENTERO
+    stockTotal     : ENTERO
+    valorValido    : ENTERO
+    hayProductoCero: LOGICO
+    posicionCero   : ENTERO
