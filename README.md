@@ -71,6 +71,7 @@ SINO
  FIN
 
  ##Diagrama de flujo
+ ![diagrama de flujo](diagrama-control-stock.png)
     
     
     
