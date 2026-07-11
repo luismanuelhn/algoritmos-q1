@@ -73,7 +73,24 @@ SINO
  ##Diagrama de flujo
  ![diagrama de flujo](diagrama-control-stock.png)
     
-    
+ ##Tabla de trazado — Control de stock de productos
+## Datos de prueba
+
+- N = 5
+- stock = [15, 8, 0, 23, 5]
+
+## Ciclo de carga y validación
+
+| Iteración (i) | Valor leído (stock[i]) | ¿stock[i] ≥ 0? | valorValido |
+|:---:|:---:|:---:|:---:|
+| 1 | 15 | Sí | Verdadero |
+| 2 | 8  | Sí | Verdadero |
+| 3 | 0  | Sí | Verdadero |
+| 4 | 23 | Sí | Verdadero |
+| 5 | 5  | Sí | Verdadero |
+
+
+
     
 
  
