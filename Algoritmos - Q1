@@ -1,0 +1,59 @@
+# Evaluación Semana 2 - Algoritmos
+## pseudocódigo Muestra el control de stock de una tienda Online
+
+ALGORITMO ControlStockProductos
+
+VARIABLES
+    N              : ENTERO
+    i              : ENTERO
+    stock          : ARREGLO[N] DE ENTERO
+    stockTotal     : ENTERO
+    valorValido    : ENTERO
+    hayProductoCero: LOGICO
+    posicionCero   : ENTERO
+
+INICIO
+
+    ESCRIBIR "Ingrese la cantidad de productos (N): "
+    LEER N
+
+    // --- Carga y validación del arreglo ---
+    PARA i ← 1 HASTA N HACER
+        valorValido ← 0
+        MIENTRAS valorValido = 0 HACER
+            ESCRIBIR "Ingrese el stock del producto ", i, ": "
+            LEER stock[i]
+            SI stock[i] >= 0 ENTONCES
+                valorValido ← 1
+            SINO
+                ESCRIBIR "Valor inválido. El stock no puede ser negativo."
+            FIN SI
+        FIN MIENTRAS
+    FIN PARA
+
+    // --- Inicialización de acumuladores ---
+    stockTotal      ← 0
+    hayProductoCero ← FALSO
+    posicionCero    ← 0
+
+    // --- Recorrido del arreglo: acumulación y detección ---
+    PARA i ← 1 HASTA N HACER
+        stockTotal ← stockTotal + stock[i]
+
+        SI stock[i] = 0 Y hayProductoCero = FALSO ENTONCES
+            hayProductoCero ← VERDADERO
+            posicionCero    ← i
+        FIN SI
+    FIN PARA
+
+    // --- Resultados calculados después del ciclo ---
+    ESCRIBIR "Stock total disponible: ", stockTotal
+
+    SI hayProductoCero = VERDADERO ENTONCES
+        ESCRIBIR "Se encontró un producto con stock 0 en la posición: ", posicionCero
+    SINO
+        ESCRIBIR "No hay productos con stock 0."
+    FIN SI
+
+FIN
+
