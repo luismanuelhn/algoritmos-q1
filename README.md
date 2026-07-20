@@ -96,7 +96,10 @@ Pseudocódigo y Algoritmos Q1 - Ingenieria en Sistemas - Universida Uk
 # Evaluación Semana 3 - Algoritmos
 ## pseudocódigo Muestra el control de stock de una tienda Online
 
- ALGORITMO ControlStockProductos
+## Pseudocódigo modular
+
+
+##ALGORITMO ControlStockProductos
 
 VARIABLES
     N              : ENTERO
@@ -204,7 +207,9 @@ INICIO
     PARA i ← 1 HASTA N HACER
         ESCRIBIR "Producto ", i, ": ", stock[i]
     FIN PARA
+
     ESCRIBIR "Stock total disponible: ", stockTotal
+
     SI posicionCero <> -1 ENTONCES
         ESCRIBIR "Producto con stock 0 encontrado en la posición: ", posicionCero
     SINO
@@ -219,12 +224,13 @@ FIN PROCEDIMIENTO
 INICIO
     ESCRIBIR "Ingrese la cantidad de productos (N): "
     LEER N
+
     LeerStocks(stock, N)
     OrdenarBubbleSort(stock, N)
     stockTotal   ← CalcularStockTotal(stock, N)
     posicionCero ← BusquedaLinealCero(stock, N)
     MostrarReporte(stock, N, stockTotal, posicionCero)
-FIN   
+FIN 
 
 ## Análisis de complejidad Big O
 
