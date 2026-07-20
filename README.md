@@ -226,7 +226,7 @@ INICIO
     MostrarReporte(stock, N, stockTotal, posicionCero)
 FIN   
 
-Análisis de complejidad Big O
+##análisis de complejidad Big O
 
 MóduloComplejidadJustificaciónLeerStocks (lectura con validación)O(n)Un solo ciclo PARA recorre los N elementos una vez. El ciclo MIENTRAS interno de validación no depende de N: solo repite si el usuario ingresa un valor inválido, no escala con el tamaño del arreglo.OrdenarBubbleSortO(n²)Dos ciclos PARA anidados: el externo recorre N-1 veces y el interno hasta N-i veces. En el peor caso (arreglo en orden inverso) se realizan aproximadamente N×N comparaciones.CalcularStockTotalO(n)Un único ciclo PARA que recorre el arreglo una sola vez, acumulando la suma. El trabajo crece linealmente con N.BusquedaLinealCeroO(n)En el peor caso (no hay producto con stock 0, o está en la última posición) el ciclo MIENTRAS recorre los N elementos completos.MostrarReporteO(n)Contiene un ciclo PARA que imprime cada uno de los N elementos del arreglo ordenado, además de operaciones de impresión constantes.Algoritmo principalO(n²)La complejidad total está determinada por el módulo más costoso: aunque la mayoría de los módulos son O(n), OrdenarBubbleSort domina el crecimiento total del sistema.
 
