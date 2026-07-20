@@ -89,9 +89,143 @@ SINO
 | 4 | 23 | Sí | Verdadero |
 | 5 | 5  | Sí | Verdadero |
 
+// ---Ejercicios semana 3---
+
+# algoritmos-q1
+Pseudocódigo y Algoritmos Q1 - Ingenieria en Sistemas - Universida Uk
+# Evaluación Semana 3 - Algoritmos
+## pseudocódigo Muestra el control de stock de una tienda Online
+
+ ALGORITMO ControlStockProductos
+
+VARIABLES
+    N              : ENTERO
+    stock          : ARREGLO[N] DE ENTERO
+    stockTotal     : ENTERO
+    posicionCero   : ENTERO
+
+// =========================================================
+// MÓDULO 1: Lectura con validación (in-place)
+// =========================================================
+PROCEDIMIENTO LeerStocks (ENT/SAL stock : ARREGLO[N] DE ENTERO, ENT N : ENTERO)
+VARIABLES
+    i           : ENTERO
+    valorValido : LOGICO
+INICIO
+    PARA i ← 1 HASTA N HACER
+        valorValido ← FALSO
+        MIENTRAS valorValido = FALSO HACER
+            ESCRIBIR "Ingrese el stock del producto ", i, ": "
+            LEER stock[i]
+            SI stock[i] >= 0 ENTONCES
+                valorValido ← VERDADERO
+            SINO
+                ESCRIBIR "Valor inválido. El stock no puede ser negativo."
+            FIN SI
+        FIN MIENTRAS
+    FIN PARA
+FIN PROCEDIMIENTO
 
 
-    
+// =========================================================
+// MÓDULO 2: Ordenamiento Bubble Sort (in-place)
+// =========================================================
+PROCEDIMIENTO OrdenarBubbleSort (ENT/SAL stock : ARREGLO[N] DE ENTERO, ENT N : ENTERO)
+VARIABLES
+    i, j, temp      : ENTERO
+    huboIntercambio : LOGICO
+INICIO
+    PARA i ← 1 HASTA N - 1 HACER
+        huboIntercambio ← FALSO
+        PARA j ← 1 HASTA N - i HACER
+            SI stock[j] > stock[j + 1] ENTONCES
+                temp        ← stock[j]
+                stock[j]    ← stock[j + 1]
+                stock[j+1]  ← temp
+                huboIntercambio ← VERDADERO
+            FIN SI
+        FIN PARA
+        SI huboIntercambio = FALSO ENTONCES
+            SALIR // arreglo ya ordenado, corta antes de tiempo
+        FIN SI
+    FIN PARA
+FIN PROCEDIMIENTO
 
- 
+
+// =========================================================
+// MÓDULO 3: Cálculo del stock total
+// =========================================================
+FUNCION CalcularStockTotal (ENT stock : ARREGLO[N] DE ENTERO, ENT N : ENTERO) : ENTERO
+VARIABLES
+    i     : ENTERO
+    total : ENTERO
+INICIO
+    total ← 0
+    PARA i ← 1 HASTA N HACER
+        total ← total + stock[i]
+    FIN PARA
+    RETORNAR total
+FIN FUNCION
+
+
+// =========================================================
+// MÓDULO 4: Búsqueda lineal del primer producto con stock 0
+// =========================================================
+FUNCION BusquedaLinealCero (ENT stock : ARREGLO[N] DE ENTERO, ENT N : ENTERO) : ENTERO
+VARIABLES
+    i         : ENTERO
+    posicion  : ENTERO
+    encontrado: LOGICO
+INICIO
+    posicion   ← -1
+    encontrado ← FALSO
+    i          ← 1
+    MIENTRAS i <= N Y encontrado = FALSO HACER
+        SI stock[i] = 0 ENTONCES
+            posicion   ← i
+            encontrado ← VERDADERO
+        FIN SI
+        i ← i + 1
+    FIN MIENTRAS
+    RETORNAR posicion
+FIN FUNCION
+
+
+// =========================================================
+// MÓDULO 5: Mostrar reporte final
+// =========================================================
+PROCEDIMIENTO MostrarReporte (ENT stock : ARREGLO[N] DE ENTERO, ENT N : ENTERO,
+                               ENT stockTotal : ENTERO, ENT posicionCero : ENTERO)
+VARIABLES
+    i : ENTERO
+INICIO
+    ESCRIBIR "===== REPORTE DE STOCK ====="
+    ESCRIBIR "Arreglo ordenado:"
+    PARA i ← 1 HASTA N HACER
+        ESCRIBIR "Producto ", i, ": ", stock[i]
+    FIN PARA
+    ESCRIBIR "Stock total disponible: ", stockTotal
+    SI posicionCero <> -1 ENTONCES
+        ESCRIBIR "Producto con stock 0 encontrado en la posición: ", posicionCero
+    SINO
+        ESCRIBIR "No hay productos con stock 0."
+    FIN SI
+FIN PROCEDIMIENTO
+
+
+// =========================================================
+// ALGORITMO PRINCIPAL
+// =========================================================
+INICIO
+    ESCRIBIR "Ingrese la cantidad de productos (N): "
+    LEER N
+    LeerStocks(stock, N)
+    OrdenarBubbleSort(stock, N)
+    stockTotal   ← CalcularStockTotal(stock, N)
+    posicionCero ← BusquedaLinealCero(stock, N)
+    MostrarReporte(stock, N, stockTotal, posicionCero)
+FIN   
+
+  ##Diagrama de flujo
+ ![diagrama de flujo](diagrama-sistema-modular.png)
     
