@@ -207,9 +207,7 @@ INICIO
     PARA i ← 1 HASTA N HACER
         ESCRIBIR "Producto ", i, ": ", stock[i]
     FIN PARA
-
     ESCRIBIR "Stock total disponible: ", stockTotal
-
     SI posicionCero <> -1 ENTONCES
         ESCRIBIR "Producto con stock 0 encontrado en la posición: ", posicionCero
     SINO
@@ -224,7 +222,6 @@ FIN PROCEDIMIENTO
 INICIO
     ESCRIBIR "Ingrese la cantidad de productos (N): "
     LEER N
-
     LeerStocks(stock, N)
     OrdenarBubbleSort(stock, N)
     stockTotal   ← CalcularStockTotal(stock, N)
